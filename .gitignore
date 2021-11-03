@@ -1,129 +1,149 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+import turtle
+import random
+import time
 
-# C extensions
-*.so
+rand = random.randint(2,5)
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+print("loading game...")
+time.sleep(rand)
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+player = turtle.Turtle()
+treasure = turtle.Turtle()
+screen = turtle.Screen()
+mine1 = turtle.Turtle()
+mine2 = turtle.Turtle()
+mine3 = turtle.Turtle()
+mine4 = turtle.Turtle()
+mine5 = turtle.Turtle()
+mine6 = turtle.Turtle()
+text = turtle.Turtle()
+text2 = turtle.Turtle()
+cor = random.randint(-300,300)
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+player.penup()
+player.goto(x = 0, y = -250)
+player.color("white")
+player.shape("circle")
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+screen.bgcolor("black")
+screen.setup(width = 600, height = 600)
+screen.title("Get The Treasure!")
 
-# Translations
-*.mo
-*.pot
+treasure.penup()
+treasure.goto(x = 0, y = 250)
+treasure.color("gold")
+treasure.shape("square")
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+mine1.goto(x = cor,y = 0)
+mine1.ht()
 
-# Flask stuff:
-instance/
-.webassets-cache
+mine2.goto(x = cor,y = 0)
+mine2.ht()
 
-# Scrapy stuff:
-.scrapy
+mine3.goto(x = cor,y = 0)
+mine3.ht()
 
-# Sphinx documentation
-docs/_build/
+mine4.goto(x = cor,y = 0)
+mine4.ht()
 
-# PyBuilder
-target/
+mine5.goto(x = cor,y = 0)
+mine5.ht()
 
-# Jupyter Notebook
-.ipynb_checkpoints
+mine6.goto(0,0)
+mine6.ht()
 
-# IPython
-profile_default/
-ipython_config.py
+text.penup()
+text.goto(0,0)
+text.color("red")
+text.hideturtle()
+text.speed(0)
 
-# pyenv
-.python-version
+text2.penup()
+text2.goto(0,0)
+text2.color("lightgreen")
+text2.hideturtle()
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+mines = [mine1, mine2, mine3, mine4, mine5, mine6]
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+while True:
+    screen.update()
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+    def up():
+        player.setheading(90)
+        player.forward(50)
 
-# SageMath parsed files
-*.sage.py
+    def down():
+        player.setheading(270)
+        player.forward(50)
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+    def right():
+        player.setheading(0)
+        player.forward(50)
 
-# Spyder project settings
-.spyderproject
-.spyproject
+    def left():
+        player.setheading(180)
+        player.forward(50)
 
-# Rope project settings
-.ropeproject
+    screen.listen()
+    screen.onkey(up, "Up")
+    screen.onkey(down, "Down")
+    screen.onkey(left, "Left")
+    screen.onkey(right, "Right")
 
-# mkdocs documentation
-/site
+    if player.distance(mine1) < 50:
+        text.goto(0,0)
+        text.color("red")
+        text.write("Game Over", align = "center", font = ("Courier", 50, "bold"))
+        print("You Died")
+        time.sleep(100)
+        text.color("black")
+        treasure.clear()
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+    if player.distance(mine2) < 50:
+        text.goto(0,0)
+        text.color("red")
+        text.write("Game Over", align = "center", font = ("Courier", 50, "bold"))
+        print("You Died")
+        time.sleep(100)
+        text.color("black")
+        treasure.clear()
 
-# Pyre type checker
-.pyre/
+    if player.distance(mine3) < 50:
+        text.goto(0,0)
+        text.color("red")
+        text.write("Game Over", align = "center", font = ("Courier", 50, "bold"))
+        print("You Died")
+        time.sleep(100)
+        text.color("black")
+        treasure.clear()
+
+    if player.distance(mine4) < 50:
+        text.goto(0,0)
+        text.color("red")
+        text.write("Game Over", align = "center", font = ("Courier", 50, "bold"))
+        print("You Died")
+        time.sleep(100)
+        text.color("black")
+        treasure.clear()
+
+    if player.distance(mine5) < 50:
+        text.goto(0,0)
+        text.color("red")
+        text.write("Game Over", align = "center", font = ("Courier", 50, "bold"))
+        print("You Died")
+        time.sleep(100)
+        text.color("black")
+        treasure.clear()
+
+    if player.distance(mine6) < 50:
+        text.goto(0,0)
+        text.color("red")
+        text.write("Game Over", align = "center", font = ("Courier", 50, "bold"))
+        print("You Died")
+        time.sleep(100)
+        text.color("black")
+        treasure.clear()
+
+    if player.distance(treasure) < 20:
+        text2.write("Victory!", align = "center", font = ("Courier", 50, "bold"))
+        time.sleep(1000)
