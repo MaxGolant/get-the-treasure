@@ -7,6 +7,7 @@ rand = random.randint(2,5)
 print("loading game...")
 time.sleep(rand)
 
+# variables
 player = turtle.Turtle()
 treasure = turtle.Turtle()
 screen = turtle.Screen()
@@ -20,6 +21,7 @@ text = turtle.Turtle()
 text2 = turtle.Turtle()
 cor = random.randint(-300,300)
 
+# settings
 player.penup()
 player.goto(x = 0, y = -250)
 player.color("white")
@@ -65,9 +67,11 @@ text2.hideturtle()
 
 mines = [mine1, mine2, mine3, mine4, mine5, mine6]
 
+# main loop
 while True:
     screen.update()
-
+    
+    # events
     def up():
         player.setheading(90)
         player.forward(50)
@@ -89,7 +93,7 @@ while True:
     screen.onkey(down, "Down")
     screen.onkey(left, "Left")
     screen.onkey(right, "Right")
-
+    
     if player.distance(mine1) < 50:
         text.goto(0,0)
         text.color("red")
